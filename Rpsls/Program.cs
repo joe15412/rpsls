@@ -141,10 +141,10 @@ namespace ConsoleApplication1
             else
             {
                 Console.WriteLine("Whoops, bad attempt to play the game, try again" );
-                firstCall();
+               return  firstCall();
                 // bad response
             }
-            return "";
+            
         }
 
         static string checkWinner(string[] args)
