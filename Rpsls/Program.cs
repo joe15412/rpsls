@@ -96,7 +96,30 @@ namespace ConsoleApplication1
             }
         }
 
+        static int playerGame()
+        {
+            Console.WriteLine("Player 1, Choose your weapon: Rock, Paper, Scissors, Lizard, Spock.");
+            string playerOneChoice = Console.ReadLine();
+            Console.WriteLine("Player 2, Choose your weapon: Rock, Paper, Scissors, Lizard, Spock.");
+            string playerTwoChoice = Console.ReadLine();
 
+            string[] choices = new string[] { playerOneChoice, playerTwoChoice };
+
+            string winner = checkWinner(choices);
+            Console.WriteLine(winner);
+            if (winner.Contains("1"))
+            {
+                return 1;
+            }
+            else if (winner.Contains("2"))
+            {
+                return 2;
+            }
+            else
+            {
+                return 0;
+            }
+        }
 
         static string firstCall()
         {
