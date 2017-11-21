@@ -42,7 +42,9 @@ namespace ConsoleApplication1
                     {
                         playerTwoWins += 1;
                     }
+
                 }
+
             }
 
             string winningPlayer = "";
@@ -55,6 +57,7 @@ namespace ConsoleApplication1
                 winningPlayer = "2";
             }
             string winnerLine = "Player "+winningPlayer+" is the ultimate winner!";
+
 
 
             Console.WriteLine(winnerLine);
@@ -93,11 +96,7 @@ namespace ConsoleApplication1
             }
         }
 
-        static int playerGame()
-        {
 
-            }
-        }
 
         static string firstCall()
         {
@@ -107,19 +106,22 @@ namespace ConsoleApplication1
             if (response == "c")
             {
                 // computer
-                Console.WriteLine("Goodluck sucka.");
+                Console.WriteLine("Goodluck.");
+                return response;
             }
             else if (response == "p")
             {
                 // player
-                Console.WriteLine("Don't cheat now.");
+                Console.WriteLine();
+                return response;
             }
             else
             {
-                Console.WriteLine("Whoops, bad attempt to play the game, you lose.");
-                // bad response given
+                Console.WriteLine("Whoops, bad attempt to play the game, try again" );
+                firstCall();
+                // bad response
             }
-            return response;
+            return "";
         }
 
         static string checkWinner(string[] args)
@@ -210,7 +212,7 @@ namespace ConsoleApplication1
                             return "Tie Game";
                         }
                     }
-                default: return "Unhandled case, sorry ERROR ERROR Joe Raleigh.";
+                default: return "sorry...ERROR.";
 
             }
 
