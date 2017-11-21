@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,12 +10,10 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            Console.WriteLineusing System;
-            ("Welcome, Do you want to play vs computer or player 2");
-            Console.ReadLine("");
+            Console.WriteLine("Welcome, Do you want to play vs computer or player 2");
+            Console.ReadLine();
 
-
-            string[] options = new string[] { "Rock", "Paper", "Scissors", "Lizard", "Spock" };
+            string[] options = new string[] { "rock", "paper", "scissors", "lizard", "spock" };
 
         }
 
@@ -25,15 +24,18 @@ namespace ConsoleApplication1
             // args[0] == Player 1's choice
             // args[1] == Player 2's choice
 
-            switch (args[0])
+            string playerOneChoice = args[0].ToLower();
+            string playerTwoChoice = args[1].ToLower();
+
+            switch (playerOneChoice)
             {
-                case "Rock":
+                case "rock":
                     {
-                        if (args[1] == "Scissors" || args[1] == "Lizard")
+                        if (playerTwoChoice == "scissors" || playerTwoChoice == "lizard")
                         {
                             return "Player 1 Wins";
                         }
-                        else if (args[1] == "Paper" || args[1] == "Spock")
+                        else if (playerTwoChoice == "paper" || playerTwoChoice == "spock")
                         {
                             return "Player 2 Wins";
                         }
@@ -42,14 +44,14 @@ namespace ConsoleApplication1
                             return "Tie game";
                         }
                     }
-                case "Paper":
+                case "paper":
                     {
-                        if (args[1] == "Rock" || args[1] == "Spock")
+                        if (playerTwoChoice == "rock" || playerTwoChoice == "spock")
                         {
                             return "Player 1 Wins";
                         }
 
-                        else if (args[1] == "Scissors" || args[1] == "Lizard")
+                        else if (playerTwoChoice == "scissors" || playerTwoChoice == "lizard")
                         {
                             return "Player 2 Wins";
                         }
@@ -58,13 +60,13 @@ namespace ConsoleApplication1
                             return "Tie Game";
                         }
                     }
-                case "Scissors":
+                case "scissors":
                     {
-                        if (args[1] == "Paper" || args[1] == "Lizard")
+                        if (playerTwoChoice == "paper" || playerTwoChoice == "lizard")
                         {
                             return "Player 1 Wins";
                         }
-                        else if (args[1] == "Rock" || args[1] == "Spock")
+                        else if (playerTwoChoice == "rock" || playerTwoChoice == "spock")
                         {
                             return "Player 2 Wins";
                         }
@@ -73,13 +75,13 @@ namespace ConsoleApplication1
                             return "Tie Game";
                         }
                     }
-                case "Lizard":
+                case "lizard":
                     {
-                        if (args[1] == "Spock" || args[1] == "Paper")
+                        if (playerTwoChoice == "spock" || playerTwoChoice == "paper")
                         {
                             return "Player 1 Wins";
                         }
-                        else if (args[1] == "Scissors" || args[1] == "Rock")
+                        else if (playerTwoChoice == "scissors" || playerTwoChoice == "rock")
                         {
                             return "Player 2 Wins";
                         }
@@ -88,13 +90,13 @@ namespace ConsoleApplication1
                             return "Tie Game";
                         }
                     }
-                case "Spock":
+                case "spock":
                     {
-                        if (args[1] == "Rock" || args[1] == "Scissors")
+                        if (playerTwoChoice == "rock" || playerTwoChoice == "scissors")
                         {
                             return "Player 1 Wins";
                         }
-                        else if (args[1] == "Lizard" || args[1] == "Paper")
+                        else if (playerTwoChoice == "lizard" || args[1] == "paper")
                         {
                             return "Plater 2 Wins";
                         }
@@ -103,6 +105,7 @@ namespace ConsoleApplication1
                             return "Tie Game";
                         }
                     }
+                default: return "Unhandled case, sorry ERROR ERROR Joe Raleigh.";
 
             }
 
