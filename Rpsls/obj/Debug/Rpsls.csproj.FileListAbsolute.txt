@@ -1,1 +1,6 @@
 C:\Users\josep\Desktop\RPSLS\Rpsls\Rpsls\bin\Debug\Rpsls.exe.config
+C:\Users\josep\Desktop\RPSLS\Rpsls\Rpsls\bin\Debug\Rpsls.exe
+C:\Users\josep\Desktop\RPSLS\Rpsls\Rpsls\bin\Debug\Rpsls.pdb
+C:\Users\josep\Desktop\RPSLS\Rpsls\Rpsls\obj\Debug\Rpsls.csprojResolveAssemblyReference.cache
+C:\Users\josep\Desktop\RPSLS\Rpsls\Rpsls\obj\Debug\Rpsls.exe
+C:\Users\josep\Desktop\RPSLS\Rpsls\Rpsls\obj\Debug\Rpsls.pdb

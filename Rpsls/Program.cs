@@ -10,11 +10,116 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome, Do you want to play vs computer or player 2");
-            Console.ReadLine();
+            string gameType = Program.firstCall();
+            int playerOneWins = 0;
+            int playerTwoWins = 0;
 
+            if (gameType == "c")
+            {
+                while(playerOneWins != 2 && playerTwoWins != 2)
+                {
+                    int winner = Program.computerGame();
+                    if (winner == 1)
+                    {
+                        playerOneWins += 1;
+                    }
+                    if (winner == 2)
+                    {
+                        playerTwoWins += 1;
+                    }
+                }
+            }
+            else if (gameType == "p")
+            {
+                while (playerOneWins != 2 && playerTwoWins != 2)
+                {
+                    int winner = Program.playerGame();
+                    if (winner == 1)
+                    {
+                        playerOneWins += 1;
+                    }
+                    if (winner == 2)
+                    {
+                        playerTwoWins += 1;
+                    }
+                }
+            }
+
+            string winningPlayer = "";
+            if (playerOneWins == 2)
+            {
+                winningPlayer = "1";
+            }
+            else
+            {
+                winningPlayer = "2";
+            }
+            string winnerLine = "Player "+winningPlayer+" is the ultimate winner!";
+
+
+            Console.WriteLine(winnerLine);
+            Console.WriteLine("Play again? [y]es or [n]o?");
+            if (Console.ReadLine() == "y")
+            {
+               Program.Main(null);
+            }
+        }
+
+        static int computerGame()
+        {
             string[] options = new string[] { "rock", "paper", "scissors", "lizard", "spock" };
 
+            Console.WriteLine("Choose your weapon: Rock, Paper, Scissors, Lizard, Spock.");
+            string playerOneChoice = Console.ReadLine();
+
+            Random random = new Random();
+            string playerTwoChoice = options[random.Next(0, 5)];
+
+            string[] choices = new string[] { playerOneChoice, playerTwoChoice };
+
+            string winner = checkWinner(choices);
+            Console.WriteLine(winner);
+            if (winner.Contains("1"))
+            {
+                return 1;
+            }
+            else if (winner.Contains("2"))
+            {
+                return 2;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        static int playerGame()
+        {
+
+            }
+        }
+
+        static string firstCall()
+        {
+            Console.WriteLine("Welcome, Do you want to play vs [c]omputer or [p]layer 2");
+            string response = Console.ReadLine();
+
+            if (response == "c")
+            {
+                // computer
+                Console.WriteLine("Goodluck sucka.");
+            }
+            else if (response == "p")
+            {
+                // player
+                Console.WriteLine("Don't cheat now.");
+            }
+            else
+            {
+                Console.WriteLine("Whoops, bad attempt to play the game, you lose.");
+                // bad response given
+            }
+            return response;
         }
 
         static string checkWinner(string[] args)
@@ -33,11 +138,11 @@ namespace ConsoleApplication1
                     {
                         if (playerTwoChoice == "scissors" || playerTwoChoice == "lizard")
                         {
-                            return "Player 1 Wins";
+                            return "Player 1 Wins "+playerOneChoice+" beats "+playerTwoChoice;
                         }
                         else if (playerTwoChoice == "paper" || playerTwoChoice == "spock")
                         {
-                            return "Player 2 Wins";
+                            return "Player 2 Wins "+playerTwoChoice+" beats "+playerOneChoice;
                         }
                         else
                         {
@@ -48,12 +153,12 @@ namespace ConsoleApplication1
                     {
                         if (playerTwoChoice == "rock" || playerTwoChoice == "spock")
                         {
-                            return "Player 1 Wins";
+                            return "Player 1 Wins " + playerOneChoice + " beats " + playerTwoChoice;
                         }
 
                         else if (playerTwoChoice == "scissors" || playerTwoChoice == "lizard")
                         {
-                            return "Player 2 Wins";
+                            return "Player 2 Wins " + playerTwoChoice + " beats " + playerOneChoice;
                         }
                         else
                         {
@@ -64,11 +169,11 @@ namespace ConsoleApplication1
                     {
                         if (playerTwoChoice == "paper" || playerTwoChoice == "lizard")
                         {
-                            return "Player 1 Wins";
+                            return "Player 1 Wins " + playerOneChoice + " beats " + playerTwoChoice;
                         }
                         else if (playerTwoChoice == "rock" || playerTwoChoice == "spock")
                         {
-                            return "Player 2 Wins";
+                            return "Player 2 Wins " + playerTwoChoice + " beats " + playerOneChoice;
                         }
                         else
                         {
@@ -79,11 +184,11 @@ namespace ConsoleApplication1
                     {
                         if (playerTwoChoice == "spock" || playerTwoChoice == "paper")
                         {
-                            return "Player 1 Wins";
+                            return "Player 1 Wins " + playerOneChoice + " beats " + playerTwoChoice;
                         }
                         else if (playerTwoChoice == "scissors" || playerTwoChoice == "rock")
                         {
-                            return "Player 2 Wins";
+                            return "Player 2 Wins " + playerTwoChoice + " beats " + playerOneChoice;
                         }
                         else
                         {
@@ -94,11 +199,11 @@ namespace ConsoleApplication1
                     {
                         if (playerTwoChoice == "rock" || playerTwoChoice == "scissors")
                         {
-                            return "Player 1 Wins";
+                            return "Player 1 Wins " + playerOneChoice + " beats " + playerTwoChoice;
                         }
                         else if (playerTwoChoice == "lizard" || args[1] == "paper")
                         {
-                            return "Plater 2 Wins";
+                            return "Player 2 Wins " + playerTwoChoice + " beats " + playerOneChoice;
                         }
                         else
                         {
